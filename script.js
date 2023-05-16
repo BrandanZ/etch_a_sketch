@@ -9,22 +9,33 @@ for (let i = 0; i < gridSize * gridSize; i++) {
 }
 
 let mouseDown = 0;
-document.body.onmousedown = () => {
-    mouseDown = 1;
-}
+
+let gridItems = document.querySelectorAll('.gridItem');
+gridItems.forEach(function(gridItem) {
+    gridItem.addEventListener('mousedown', function(e) {
+        mouseDown = 1;
+        changeBackgroundColor(e);
+    });
+    gridItem.addEventListener('mouseover', function(e) {
+        if (mouseDown) {
+            changeBackgroundColor(e);
+        }
+    });
+    gridItem.addEventListener('mouseup', function(e) {
+        mouseDown = 0;
+    });
+});
+
 document.body.onmouseup = () => {
     mouseDown = 0;
 }
 
-gridItem = document.querySelectorAll('.gridItem');
+function changeBackgroundColor(e) {
+    if (mouseDown) {
+        e.target.style.backgroundColor = 'black';
+    }
+}
 
-gridItem.forEach(function(gridItem){
-    gridItem.addEventListener('mouseover', function(e) {
-        if (mouseDown) {
-            e.target.style.backgroundColor = 'black';
-        }
-    });
-});
 
 document.querySelector('.gridSize').addEventListener('click', function() {
     let newGridSize = prompt("Please enter a grid size between 1 and 100 ");
