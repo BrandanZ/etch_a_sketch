@@ -52,8 +52,8 @@ document.querySelector('.gridSize').addEventListener('click', function() {
     let newGridSize = prompt("Please enter a grid size between 1 and 100 ");
     newGridSize = parseInt(newGridSize);
 
-    if (isNaN(gridSize) || gridSize < 1 || gridSize > 100) {
-        newGridSize = gridSize;
+    if (isNaN(newGridSize) || newGridSize < 1 || newGridSize > 100) {
+        // If new grid size is invalid, do nothing to keep grid the same size
     } else {
         gridSize = newGridSize;
         createGrid(gridSize);
