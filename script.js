@@ -1,5 +1,7 @@
-const container = document.querySelector('.container');
-const newDiv = document.createElement("div");
-newDiv.classList.add('gridContainer');
-newDiv.textContent = 'test';
-container.appendChild(newDiv);
+const grid = document.querySelector('.grid');
+
+for (let i=0; i < 256; i++) {
+    const cell = document.createElement("div");
+    cell.classList.add('gridItem');
+    grid.appendChild(cell);
+}

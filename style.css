@@ -1,6 +1,20 @@
 .container {
     display: flex;
-    align-items: center;
     justify-content: center;
-    border: 1px black;
+    align-items: center;
+    min-height: 800px;
+}
+
+.grid {
+    display: flex;
+    width: 640px;
+    height: 640px;
+    flex-wrap: wrap;
+}
+
+.gridItem {
+    width: calc(100% / 16);
+    height: calc(100% / 16);
+    box-sizing: border-box;
+    border: 1px solid black;
 }
