@@ -6,9 +6,20 @@ for (let i=0; i < 256; i++) {
     grid.appendChild(cell);
 }
 
+let mouseDown = 0;
+document.body.onmousedown = () => {
+    mouseDown = 1;
+}
+document.body.onmouseup = () => {
+    mouseDown = 0;
+}
+
 const gridItem = document.querySelectorAll('.gridItem');
+
 gridItem.forEach(function(gridItem){
     gridItem.addEventListener('mouseover', function(e) {
-        e.target.style.backgroundColor = 'red';
-    })
-})
+        if (mouseDown) {
+            e.target.style.backgroundColor = 'red';
+        }
+    });
+});
