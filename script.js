@@ -46,8 +46,6 @@ document.body.onmouseup = () => {
 createGrid(gridSize);
 addEventListenersToGridItems();
 
-
-
 document.querySelector('.gridSize').addEventListener('click', function() {
     let newGridSize = prompt("Please enter a grid size between 1 and 100 ");
     newGridSize = parseInt(newGridSize);
