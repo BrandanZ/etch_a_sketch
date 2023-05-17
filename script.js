@@ -27,26 +27,28 @@ function addEventListenersToGridItems() {
                 changeBackgroundColor(e);
             }
         });
-        gridItem.addEventListener('mouseup', function(e) {
-            mouseDown = 0;
-        });
+        // gridItem.addEventListener('mouseup', function(e) {
+        //     mouseDown = 0;
+        // });
     });
 }
 
 function changeBackgroundColor(e) {
-    if (mouseDown) {
         e.target.style.backgroundColor = 'black';
     }
-}
 
-document.body.onmouseup = () => {
+document.body.addEventListener('mousedown', function(e) {
+    mouseDown = 1;
+});
+
+document.body.addEventListener('mouseup', function(e) {
     mouseDown = 0;
-}
+});
 
 createGrid(gridSize);
 addEventListenersToGridItems();
 
-document.querySelector('.gridSize').addEventListener('click', function() {
+document.querySelector('.gridSizing').addEventListener('click', function() {
     let newGridSize = prompt("Please enter a grid size between 1 and 100 ");
     newGridSize = parseInt(newGridSize);
 
