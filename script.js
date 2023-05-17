@@ -27,15 +27,15 @@ function addEventListenersToGridItems() {
                 changeBackgroundColor(e);
             }
         });
-        // gridItem.addEventListener('mouseup', function(e) {
-        //     mouseDown = 0;
-        // });
     });
 }
 
 function changeBackgroundColor(e) {
-        e.target.style.backgroundColor = 'black';
-    }
+        let red = Math.floor(Math.random() * 256);
+        let green = Math.floor(Math.random() * 256);
+        let blue = Math.floor(Math.random() * 256);
+        e.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+    };
 
 document.body.addEventListener('mousedown', function(e) {
     mouseDown = 1;
