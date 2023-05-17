@@ -18,11 +18,11 @@ function createGrid(size) {
 function addEventListenersToGridItems() {
     let gridItems = document.querySelectorAll('.gridItem');
     gridItems.forEach(function(gridItem) {
-        gridItem.addEventListener('mousedown', function(e) {
+        gridItem.addEventListener('mousedown', (e) => {
             mouseDown = 1;
             changeBackgroundColor(e);
         });
-        gridItem.addEventListener('mouseover', function(e) {
+        gridItem.addEventListener('mouseover', (e) => {
             if (mouseDown) {
                 changeBackgroundColor(e);
             }
@@ -37,18 +37,18 @@ function changeBackgroundColor(e) {
         e.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
     };
 
-document.body.addEventListener('mousedown', function(e) {
+document.body.addEventListener('mousedown', (e) => {
     mouseDown = 1;
 });
 
-document.body.addEventListener('mouseup', function(e) {
+document.body.addEventListener('mouseup', (e) => {
     mouseDown = 0;
 });
 
 createGrid(gridSize);
 addEventListenersToGridItems();
 
-document.querySelector('.gridSizing').addEventListener('click', function() {
+document.querySelector('.gridSizing').addEventListener('click', () => {
     let newGridSize = prompt("Please enter a grid size between 1 and 100 ");
     newGridSize = parseInt(newGridSize);
 
