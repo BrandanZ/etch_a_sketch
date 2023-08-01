@@ -2,10 +2,14 @@ let gridSize = 16;
 let mouseDown = 0;
 const grid = document.querySelector('.grid');
 
-function createGrid(size) {
+function clearGrid() {
     while (grid.firstChild) {
         grid.removeChild(grid.firstChild);
     }
+}
+
+function createGrid(size) {
+    clearGrid();
 
     for (let i = 0; i < gridSize * gridSize; i++) {
         let gridItem = document.createElement('div');
